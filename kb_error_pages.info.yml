@@ -1,0 +1,6 @@
+name: KB Error pages
+description: Manage error pages 403 404
+type: module
+package: Custom
+version: 8.x-1.1
+core: 8.x

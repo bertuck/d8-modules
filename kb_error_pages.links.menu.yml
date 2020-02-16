@@ -1,0 +1,18 @@
+kb_error_pages.all:
+  title: "Pages d'erreurs"
+  description: ''
+  route_name: kb_error_pages.config.access_denied
+  parent: 'system.admin_config'
+  weight: 99
+kb_error_pages.access_denied:
+  title: '403'
+  description: ''
+  route_name: kb_error_pages.config.access_denied
+  parent: 'kb_error_pages.all'
+  weight: 99
+kb_error_pages.not_found:
+  title: '404'
+  description: ''
+  route_name: kb_error_pages.config.not_found
+  parent: 'kb_error_pages.all'
+  weight: 99

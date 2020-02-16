@@ -1,24 +1,22 @@
-# KB ENTITY BROWSER :
+# KB Error Pages module:
 
-* Requires - Drupal 8.6
-* Kenni Bertucat
+Requires - Drupal 8
+Kenni Bertucat
 
 
 ## Overview:
 
-* This module provide an entity browser (image/document/videos),
-Entity browser image, entity browser document and entity browser ckeditor via full html.
-This modules saves a lot of time in a typical installation.
+This module provides two screen configurations to set the 'Title'
+and the 'Description' for each error pages.
+This module manage 403 and 404 errors.
 
 
-## Important to create a field entity browser :
+##Installation:
 
-
-1. Create Media field and select a media type. ex: 'field_image, field_video, field_document' 
-2. Go to Manage Form Display in field settings
-and select : 
-
-    * Widget settings: Entity browser
-    * Entity browser : Entity browser images or Entity browser documents or Entity browser videos, depend on media type
-    * Entity display plugin : Rendered Entity
-    * View mode : Teaser
+* Place this module directory in your modules folder (this will
+   usually be "modules/" for Drupal 8).
+* Go to Manage -> Extend to enable the module.
+* And then you have access to the configuration routes :
+    - \Drupal\error_pages\Form\Configuration403Form
+    - \Drupal\error_pages\Form\Configuration404Form
+* And the website manage /403 and /404.
