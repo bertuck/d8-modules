@@ -1,0 +1,36 @@
+<?php
+
+/**
+ * @param array $plugins
+ */
+function kb_ckeditor_plugins_ckeditor_plugin_info_alter(array &$plugins) {
+    $plugins['accordion'] = array(
+        'id' => 'accordion',
+        'label' => t('Accordion'),
+        'module' => 'kb_ckeditor_plugins',
+        'class' => 'Drupal\kb_ckeditor_plugins\Plugin\CKEditorPlugin\Accordion',
+        'provider' => 'kb_ckeditor_plugins',
+    );
+    $plugins['twoblocks'] = array(
+        'id' => 'twoblocks',
+        'label' => t('Two Blocks'),
+        'module' => 'kb_ckeditor_plugins',
+        'class' => 'Drupal\kb_ckeditor_plugins\Plugin\CKEditorPlugin\TwoBlocks',
+        'provider' => 'kb_ckeditor_plugins',
+    );
+    $plugins['icon'] = array(
+        'id' => 'icon',
+        'label' => t('Icon'),
+        'module' => 'kb_ckeditor_plugins',
+        'class' => 'Drupal\kb_ckeditor_plugins\Plugin\CKEditorPlugin\Icon',
+        'provider' => 'kb_ckeditor_plugins',
+    );
+
+    $plugins['customlink'] = array(
+        'id' => 'customlink',
+        'label' => t('customlink'),
+        'module' => 'kb_ckeditor_plugins',
+        'class' => 'Drupal\kb_ckeditor_plugins\Plugin\CKEditorPlugin\CustomLink',
+        'provider' => 'kb_ckeditor_plugins',
+    );
+}

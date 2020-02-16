@@ -1,0 +1,23 @@
+uuid: ef030cfd-786a-4a59-99c4-9b61dee73cb9
+langcode: en
+status: true
+dependencies: {  }
+name: 'No html'
+format: no_html
+weight: 0
+filters:
+  filter_html:
+    id: filter_html
+    provider: filter
+    status: true
+    weight: -10
+    settings:
+      allowed_html: ''
+      filter_html_help: true
+      filter_html_nofollow: false
+  filter_html_escape:
+    id: filter_html_escape
+    provider: filter
+    status: true
+    weight: -10
+    settings: {  }
