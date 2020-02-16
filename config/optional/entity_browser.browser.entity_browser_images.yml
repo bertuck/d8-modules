@@ -13,7 +13,7 @@ display: modal
 display_configuration:
   width: '850'
   height: '600'
-  link_text: 'Ouvrir Entity Browser'
+  link_text: 'Entity Browser'
   auto_open: false
 selection_display: no_display
 selection_display_configuration: {  }

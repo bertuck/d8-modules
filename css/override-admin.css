@@ -2,13 +2,10 @@
     border-radius: 60px !important;
 }
 
-.ui-dialog .ui-dialog-titlebar:before {
-    content: 'ENTITY BROWSER';
-    font-size: 1.3em;
-}
-
 .ui-dialog .ui-dialog-titlebar .ui-dialog-title {
-    display: none !important;
+    font-size: 1.2em !important;
+    font-family: unset !important;
+    font-weight: bold !important;
 }
 
 .ui-dialog .ui-dialog-titlebar .ui-button:hover {
@@ -21,6 +18,6 @@ button.ui-button.ui-corner-all.ui-widget.ui-button-icon-only.ui-dialog-titlebar-
 }
 
 .ui-dialog .ui-dialog-titlebar .ui-dialog-titlebar-close {
-  top: 1rem !important;
-  right: 1rem!important;
+    top: 1rem !important;
+    right: 1rem!important;
 }

@@ -1,8 +1,8 @@
 name: KB Entity Browser
-description: AW Module
+description: Custom Entity Browser
 type: module
 package: Custom
-version: 8.x-1.3
+version: 8.x-1.2
 core: 8.x
 libraries:
   - kb_profile_basic/override-admin
