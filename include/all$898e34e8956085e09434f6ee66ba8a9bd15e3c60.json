@@ -1,0 +1,68 @@
+{
+    "packages": {
+        "drupal_kb_modules/kb_ckeditor": {
+            "8.1.0": {
+                "name": "drupal_kb_modules/kb_ckeditor",
+                "version": "8.1.0",
+                "version_normalized": "8.1.0.0",
+                "dist": {
+                    "type": "zip",
+                    "url": "https://github.com/bertuck/repo-composer/archive/kb_ckeditor/1.0.zip"
+                },
+                "type": "drupal-module",
+                "license": [
+                    "KB",
+                    "Tested on 8.8.2"
+                ]
+            }
+        },
+        "drupal_kb_modules/kb_entity_browser": {
+            "8.1.1": {
+                "name": "drupal_kb_modules/kb_entity_browser",
+                "version": "8.1.1",
+                "version_normalized": "8.1.1.0",
+                "dist": {
+                    "type": "zip",
+                    "url": "https://github.com/bertuck/repo-composer/archive/kb_entity_browser/1.1.zip"
+                },
+                "type": "drupal-module",
+                "license": [
+                    "KB",
+                    "Tested on 8.8.2"
+                ]
+            }
+        },
+        "drupal_kb_modules/kb_error_pages": {
+            "8.1.0": {
+                "name": "drupal_kb_modules/kb_error_pages",
+                "version": "8.1.0",
+                "version_normalized": "8.1.0.0",
+                "dist": {
+                    "type": "zip",
+                    "url": "https://github.com/bertuck/repo-composer/archive/kb_error_pages/1.0.zip"
+                },
+                "type": "drupal-module",
+                "license": [
+                    "KB",
+                    "Tested on 8.8.2"
+                ]
+            }
+        },
+        "drupal_kb_modules/kb_glossary": {
+            "8.1.0": {
+                "name": "drupal_kb_modules/kb_glossary",
+                "version": "8.1.0",
+                "version_normalized": "8.1.0.0",
+                "dist": {
+                    "type": "zip",
+                    "url": "https://github.com/bertuck/repo-composer/archive/kb_glossary/1.0.zip"
+                },
+                "type": "drupal-module",
+                "license": [
+                    "KB",
+                    "Tested on 8.8.2"
+                ]
+            }
+        }
+    }
+}
