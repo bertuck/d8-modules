@@ -22,12 +22,12 @@
             "type": "package",
             "package": {
                 "name": "drupal_kb_modules\/kb_ckeditor",
-                "version": "8.1.0",
+                "version": "8.1.1",
                 "type": "drupal-module",
                 "license": ["KB", "Tested on 8.8.2"],
                 "dist": {
                     "type": "zip",
-                    "url": "https://github.com/bertuck/repo-composer/archive/kb_ckeditor/1.0.zip"
+                    "url": "https://github.com/bertuck/repo-composer/archive/kb_ckeditor/1.1.zip"
                 }
             }
         },
