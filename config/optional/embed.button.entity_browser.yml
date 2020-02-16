@@ -1,0 +1,28 @@
+uuid: ca23bfc4-1c15-44ef-845f-f4269ae8dbb5
+langcode: en
+status: true
+dependencies:
+  config:
+    - media.type.document
+    - media.type.image
+    - media.type.video
+  module:
+    - entity_embed
+    - media
+label: 'Entity browser'
+id: entity_browser
+type_id: entity
+type_settings:
+  entity_type: media
+  bundles:
+    - document
+    - image
+    - video
+  display_plugins:
+    - 'view_mode:media.full'
+  entity_browser: entity_browser_ckeditor
+  entity_browser_settings:
+    display_review: false
+icon_location: path
+icon_uuid: null
+icon_path: modules/contrib/kb_entity_browser/images/entity_browser.png

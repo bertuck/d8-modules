@@ -1,0 +1,42 @@
+uuid: fbab6d3a-ccb0-4178-9405-9a4d3b972abb
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.entity_browser_videos
+  module:
+    - entity_browser_entity_form
+    - views
+name: entity_browser_videos
+label: 'Entity browser vidéos'
+display: modal
+display_configuration:
+  width: '850'
+  height: '600'
+  link_text: 'Ouvrir Entity Browser'
+  auto_open: false
+selection_display: no_display
+selection_display_configuration: {  }
+widget_selector: tabs
+widget_selector_configuration: {  }
+widgets:
+  c6012406-e8b8-4737-8c00-3b36d00db52e:
+    settings:
+      entity_type: media
+      bundle: document
+      form_mode: default
+      submit_text: Enregistrer
+    uuid: c6012406-e8b8-4737-8c00-3b36d00db52e
+    weight: 1
+    label: Nouveau
+    id: entity_form
+  52b77318-fccc-4408-abc3-9c5e11599509:
+    settings:
+      view: entity_browser_videos
+      view_display: entity_browser_1
+      submit_text: Sélectionnez
+      auto_select: false
+    uuid: 52b77318-fccc-4408-abc3-9c5e11599509
+    weight: 2
+    label: Vidéos
+    id: view

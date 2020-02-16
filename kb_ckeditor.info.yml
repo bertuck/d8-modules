@@ -1,9 +1,0 @@
-name: KB CKEditor
-description: Permet d'avoir un ckeditor complet
-type: module
-package: Custom
-version: 8.x-1.2
-core: 8.x
-
-dependencies:
-  - kb_ckeditor_plugins

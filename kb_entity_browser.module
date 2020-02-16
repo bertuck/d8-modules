@@ -1,0 +1,8 @@
+<?php
+
+/**
+ * @param $variables
+ */
+function kb_entity_browser_preprocess_page(&$variables) {
+    $variables['#attached']['library'][] = 'kb_entity_browser/override-admin';
+}
