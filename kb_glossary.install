@@ -1,0 +1,16 @@
+<?php
+
+use \Drupal\taxonomy\Entity\Vocabulary;
+use \Drupal\views\Views;
+
+
+define('VOCABULARY_ID_GLOSSARY', 'glossary');
+define('VIEWS_ID', 'glossary_taxonomy');
+
+/**
+ * Implements hook_uninstall().
+ */
+function kb_glossary_uninstall() {
+    Views::getView(VIEWS_ID)->destroy();
+    Vocabulary::load(VOCABULARY_ID_GLOSSARY)->delete();
+}

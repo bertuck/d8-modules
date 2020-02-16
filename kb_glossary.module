@@ -1,0 +1,115 @@
+<?php
+
+/**
+ * Implements hook_theme_suggestions_HOOK_alter().
+ */
+function kb_glossary_theme_suggestions_taxonomy_term_alter(array &$suggestions, array $variables) {
+    if (Drupal::routeMatch()->getRouteObject()->getDefault('view_id') == 'glossary_taxonomy') {
+        $suggestions = ['taxonomy_term__glossary'];
+    }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function kb_glossary_theme() {
+    return [
+        'taxonomy_term__glossary' => [
+            'base hook' => 'taxonomy_term',
+            'template' => 'taxonomy-term--glossary',
+            'path' => drupal_get_path('module', 'kb_glossary') . '/templates'
+        ]
+    ];
+}
+
+/**
+ * Implements hook_page_attachments().
+ */
+function kb_glossary_page_attachments(array &$attachments) {
+    $attachments['#attached']['library'][] = 'kb_glossary/kb_glossary';
+}
+
+/**
+ * Implements hook_field_info_alter().
+ */
+function kb_glossary_field_info_alter(&$info) {
+    $info['text_with_summary']['class'] = 'Drupal\kb_glossary\Plugin\Field\FieldType\GlossaryTextareaWithSummaryItem';
+    $info['text_long']['class'] = 'Drupal\kb_glossary\Plugin\Field\FieldType\GlossaryTextareaItem';
+}
+
+
+/**
+ * Implements hook_entity_view_alter().
+ */
+function kb_glossary_entity_view_alter(array &$build, Drupal\Core\Entity\EntityInterface $entity, \Drupal\Core\Entity\Display\EntityViewDisplayInterface $display) {
+    $parser = \Drupal::service('kb_glossary.service.parser');
+    $parser->setValueEntityField($build, $entity);
+}
+
+/**
+ * @param $variables
+ */
+function kb_glossary_preprocess_views_view_summary_unformatted(&$variables) {
+    if (Drupal::routeMatch()->getRouteObject()->getDefault('view_id') == 'glossary_taxonomy' && $variables['view']->current_display == 'attachment_1') {
+        $count = COUNT($variables['rows']);
+        $increment = 0;
+        foreach(range('A', 'Z') as $k => $v) {
+            $disabled = TRUE;
+            if (isset($variables['view']->result[$increment]) && strtolower($variables['view']->result[$increment]->name_truncated) == strtolower($v)) {
+                $increment++;
+                $disabled = FALSE;
+            }
+
+            $alpha = array(
+                '_relationship_entities' => [],
+                'index' => $k,
+                'name_truncated' => $v,
+                'num_records' => '',
+                'attributes' => new Drupal\Core\Template\Attribute(
+                    array(
+                        'class' =>
+                            array(
+                                ($disabled == FALSE) ? '' : 'disabled',
+                                (Drupal::routeMatch()->getRawParameter('arg_0') == $v) ? 'active' : '',
+                            )
+                    )
+                ),
+                'link' => $v,
+                'url' => ($disabled == FALSE) ? '/lexique/' . $v : '#',
+                'separator' => ($v > 'A') ? $variables['options']['separator'] : ''
+            );
+
+            $row = new Drupal\views\ResultRow($alpha);
+            $variables['rows'][] = $row;
+        }
+
+        $variables['rows'] = array_slice($variables['rows'], $count);
+    }
+}
+
+/**
+ * Implements hook_views_data_alter().
+ */
+function kb_glossary_views_data_alter(array &$data) {
+    $data['views']['table']['group'] = t('Global');
+    $data['views']['table']['join'] = array(
+        '#global' => array(),
+    );
+
+    $data['views']['header'] = [
+        'title' => t('Glossary Header'),
+        'help' => t('Add header text in area zone'),
+        'area' => [
+            'id' => 'glossary_header',
+        ],
+    ];
+}
+
+/**
+ * Implements hook_views_post_render().
+ */
+function kb_glossary_views_post_render(\Drupal\views\ViewExecutable $view) {
+     if ($view->id() == 'glossary_taxonomy') {
+         $view->setTitle(Drupal::service('state')->get('glossary_title') ? : $view->getTitle());
+     }
+}

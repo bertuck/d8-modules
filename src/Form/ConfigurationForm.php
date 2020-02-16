@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\kb_error_pages\Form;
+namespace Drupal\kb_glossary\Form;
 
 
 use Drupal\Core\Cache\Cache;
@@ -12,7 +12,7 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Config\ConfigFactoryInterface;
 
-class Configuration404Form extends ConfigFormBase {
+class ConfigurationForm extends ConfigFormBase {
 
 
     /**
@@ -59,7 +59,7 @@ class Configuration404Form extends ConfigFormBase {
      * {@inheritdoc}
      */
     public function getFormId() {
-        return 'kb_error_pages.form_404_configuration';
+        return 'kb_glossary.form_configuration';
     }
 
     /**
@@ -67,32 +67,31 @@ class Configuration404Form extends ConfigFormBase {
      */
     protected function getEditableConfigNames() {
         return array(
-            'kb_error_pages.404_configuration'
+            'kb_glossary.configuration'
         );
     }
 
     /**
      * {@inheritdoc}
      */
-    public function buildForm(array $form, FormStateInterface $form_state) {
+    public function buildForm(array  $form, FormStateInterface $form_state) {
         $form['link'] = array(
-            '#title' => $this->t('Voir la page'),
+            '#title' => $this->t('Voir le lexique'),
             '#type' => 'link',
-            '#url' => Url::fromRoute('kb_error_pages.not_found')
+            '#url' => Url::fromRoute('view.glossary_taxonomy.page_1')
         );
 
-        $form['error_404_title'] = array(
+        $form['glossary_title'] = array(
             '#type' => 'textfield',
             '#title' => $this->t('Titre'),
-            '#default_value' => $this->state->get('error_404_title'),
+            '#default_value' => $this->state->get('glossary_title'),
             '#required' => TRUE,
         );
 
-        $form['error_404_description'] = array(
+        $form['glossary_description'] = array(
             '#type' => 'text_format',
             '#title' => $this->t('Description'),
-            '#default_value' => $this->state->get('error_404_description'),
-            '#format'=> 'full_html',
+            '#default_value' => $this->state->get('glossary_description'),
             '#required' => FALSE,
         );
 
@@ -103,14 +102,11 @@ class Configuration404Form extends ConfigFormBase {
      * {@inheritdoc}
      */
     public function submitForm(array &$form, FormStateInterface $form_state) {
-        $errorTitle = $form_state->getValue('error_404_title');
-        $errorDescription = $form_state->getValue('error_404_description')['value'];
-        $this->config->getEditable('system.site')->set('page.404', '/not-found')->save();
-        $this->state->set('error_404_title', $errorTitle);
-        $this->state->set('error_404_description', $errorDescription);
-        \Drupal::messenger()->addMessage(t("La page 404 à été correctement mise à jour."));
+        // Set glossary title and description
+        $this->state->set('glossary_title', $form_state->getValue('glossary_title'));
+        $this->state->set('glossary_description', $form_state->getValue('glossary_description')['value']);
 
-        // INVALIDATING CACHE TAGS
-        Cache::invalidateTags(['config:aw.error.pages.404']);
+        // INVALIDATING CACHE TAGS GLOSSARY
+        Cache::invalidateTags(['config:views.view.glossary_taxonomy']);
     }
 }

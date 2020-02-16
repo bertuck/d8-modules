@@ -1,0 +1,6 @@
+name: KB Glossary module
+description: Glossary module
+type: module
+package: Custom
+version: 8.x-1.0
+core: 8.x

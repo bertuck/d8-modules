@@ -1,0 +1,5 @@
+kb_glossary:
+  version: 0
+  css:
+    theme:
+      css/glossary.css: {}

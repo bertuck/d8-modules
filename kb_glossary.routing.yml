@@ -1,0 +1,7 @@
+kb_glossary.config:
+  path: '/admin/configuration/glossary'
+  defaults:
+    _title: 'Lexique'
+    _form: '\Drupal\kb_glossary\Form\ConfigurationForm'
+  requirements:
+      _permission: 'Glossary permissions'

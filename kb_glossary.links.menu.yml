@@ -1,0 +1,6 @@
+kb_glossary.configuration:
+  title: Glossary
+  description: 'Specify which configuration glossary'
+  route_name: kb_glossary.config
+  parent: 'system.admin_config'
+  weight: 100

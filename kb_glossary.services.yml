@@ -1,0 +1,12 @@
+services:
+  kb_glossary.service.parser:
+    class: 'Drupal\kb_glossary\Services\Parser'
+    arguments: ['@transliteration', '@twig', '@entity_type.manager']
+  kb_glossary.machineName.twig_extension:
+    class: 'Drupal\kb_glossary\Twig\MachineNameExtension'
+    tags:
+      - { name: twig.extension }
+  kb_glossary.service.breadcrumb:
+    class: 'Drupal\kb_glossary\Breadcrumb\GlossaryBreadCrumbBuilder'
+    tags:
+      - { name: 'breadcrumb_builder', priority: 1004 }
