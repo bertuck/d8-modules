@@ -17,13 +17,13 @@
             }
         },
         "drupal_kb_modules/kb_entity_browser": {
-            "8.1.1": {
+            "8.1.2": {
                 "name": "drupal_kb_modules/kb_entity_browser",
-                "version": "8.1.1",
-                "version_normalized": "8.1.1.0",
+                "version": "8.1.2",
+                "version_normalized": "8.1.2.0",
                 "dist": {
                     "type": "zip",
-                    "url": "https://github.com/bertuck/repo-composer/archive/kb_entity_browser/1.1.zip"
+                    "url": "https://github.com/bertuck/repo-composer/archive/kb_entity_browser/1.2.zip"
                 },
                 "type": "drupal-module",
                 "license": [

@@ -9,12 +9,12 @@
             "type": "package",
             "package": {
                 "name": "drupal_kb_modules\/kb_entity_browser",
-                "version": "8.1.1",
+                "version": "8.1.2",
                 "type": "drupal-module",
                 "license": ["KB", "Tested on 8.8.2"],
                 "dist": {
                     "type": "zip",
-                    "url": "https://github.com/bertuck/repo-composer/archive/kb_entity_browser/1.1.zip"
+                    "url": "https://github.com/bertuck/repo-composer/archive/kb_entity_browser/1.2.zip"
                 }
             }
         },
